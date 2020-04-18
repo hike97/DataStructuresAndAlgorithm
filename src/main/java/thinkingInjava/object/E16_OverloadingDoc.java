@@ -1,4 +1,4 @@
-package thinkingInjava;
+package thinkingInjava.object;
 
 /** Model of a single arboreal unit. */
 class Tree {

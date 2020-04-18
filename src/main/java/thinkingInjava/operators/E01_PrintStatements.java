@@ -1,4 +1,4 @@
-package thinkingInjava;
+package thinkingInjava.operators;
 
 import net.mindview.util.Print;
 
