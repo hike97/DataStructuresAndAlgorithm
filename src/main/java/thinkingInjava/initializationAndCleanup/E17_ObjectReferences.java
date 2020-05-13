@@ -1,6 +1,5 @@
 package thinkingInjava.initializationAndCleanup;
 
-import net.mindview.atunit.Test;
 
 /**
  * @author hike97 2month
