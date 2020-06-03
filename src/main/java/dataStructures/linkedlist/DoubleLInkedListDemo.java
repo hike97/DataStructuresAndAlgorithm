@@ -7,6 +7,37 @@ package dataStructures.linkedlist;
  * @Modified By:
  **/
 public class DoubleLInkedListDemo {
+	public static void main (String[] args) {
+		System.out.println ("双向链表的测试");
+		//先创建节点
+		HeroNode2 hero1 = new HeroNode2 (1, "宋江", "及时雨");
+		HeroNode2 hero2 = new HeroNode2 (2,"卢俊义","玉麒麟");
+		HeroNode2 hero3 = new HeroNode2 (3,"公孙胜","入云龙");
+		HeroNode2 hero4 = new HeroNode2 (5,"宁立恒","血手人屠");
+		//创建一个双向链表
+		DoubleLinkedList heroDoublelist = new DoubleLinkedList ();
+		//添加
+		heroDoublelist.add (hero1);
+		heroDoublelist.add (hero2);
+		heroDoublelist.add (hero3);
+		heroDoublelist.add (hero4);
+		//遍历
+//		heroDoublelist.list ();
+		HeroNode2 updateHero = new HeroNode2 (4, "铁剑河山", "陆红提");
+//		//修改
+//		System.out.println ("do update operation");
+//		heroDoublelist.update (updateHero);
+//		heroDoublelist.list ();
+//		//删除
+//		heroDoublelist.delete (4);
+//		System.out.println ("do delete operation");
+//		heroDoublelist.list ();
+
+		//有序添加
+		heroDoublelist.addByOrder (updateHero);
+		System.out.println ("有序添加操作后~~");
+		heroDoublelist.list ();
+	}
 }
 class DoubleLinkedList {
 
@@ -46,6 +77,32 @@ class DoubleLinkedList {
 		temp.next= heroNode;
 		heroNode.pre=temp;
 	}
+
+	//根据顺序添加结点
+	public  void addByOrder(HeroNode2 heroNode){
+		HeroNode2 temp = this.head;
+		boolean flag = false;//判断编号是否存在
+		while (true){
+			if (temp.next==null)break;//说明temp已经在链表的最后
+			if (temp.no>heroNode.no){
+				break;
+			}else if (temp.no==heroNode.no){
+				flag=true;
+				break;
+			}
+			temp = temp.next;
+		}
+		//判断flag的值
+		if (flag){
+			System.out.printf ("编号%d已存在,不能加入\n",heroNode.no);
+		}else {
+            temp.pre.next=heroNode;
+            heroNode.pre=temp.pre;
+            heroNode.next=temp;
+            temp.pre=heroNode;
+		}
+	}
+
 	//修改链表 双向链表节点内容修改和单向链表一样
 	//只是改成heroNode2
 	public void update(HeroNode2 newHeroNode){
@@ -74,13 +131,22 @@ class DoubleLinkedList {
 	}
 	
 	//删除结点
-	//删除
+
+	/**
+	 * 说明：
+	 * 1.对于双向链表，我们可以直接找到要删除的这个节点
+	 * 2.找到后，自我删除即可
+	 */
 	public void delete(int no){
-		if (head.next == null) return;
-		HeroNode2 temp = head.next;
-		boolean flag =  false;
+		//判断当前链表是否为空
+		if (head.next==null){
+			System.out.println ("链表为空，无法删除");
+			return;
+		}
+		HeroNode2 temp = head.next;//辅助变量（指针）
+		boolean flag =  false;//标志时候找到 待删除节点
 		while (true){
-			if (temp == null) break;
+			if (temp == null) break;//已经找到链表最后节点的next;
 			if (temp.no==no){
 				flag =true;
 				break;
@@ -88,7 +154,14 @@ class DoubleLinkedList {
 			temp = temp.next;
 		}
 		if (flag){
-
+            temp.pre.next=temp.next;
+            //这里我们的代码有问题
+			/**
+			 * 最后一个节点 temp.next 为空
+			 */
+			if (temp.next!=null)  temp.next.pre=temp.pre;
+		}else{
+			System.out.printf ("要删除的%d 节点不存在\n",no);
 		}
 
 	}
