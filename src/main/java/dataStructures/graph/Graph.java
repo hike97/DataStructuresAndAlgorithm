@@ -21,21 +21,34 @@ public class Graph {
 
 	public static void main (String[] args) {
 		//测试一把图是否创建
-		String Vertexs[] = {"A", "B", "C", "D", "E"};
-		Graph graph = new Graph (5);
+//		String Vertexs[] = {"A", "B", "C", "D", "E"};
+		String Vertexs[] = {"1", "2", "3", "4", "5", "6", "7", "8"};
+		Graph graph = new Graph (8);
 		for (String vertex : Vertexs) {
 			graph.insertVertex (vertex);
 		}
 		//添加边
 		//A-B A-C B-C B-D B-E
-		graph.insertEdge(0, 1, 1); // A-B
-		graph.insertEdge(0, 2, 1); //
-		graph.insertEdge(1, 2, 1); //
-		graph.insertEdge(1, 3, 1); //
-		graph.insertEdge(1, 4, 1); //
+//		graph.insertEdge(0, 1, 1); // A-B
+//		graph.insertEdge(0, 2, 1); //
+//		graph.insertEdge(1, 2, 1); //
+//		graph.insertEdge(1, 3, 1); //
+//		graph.insertEdge(1, 4, 1); //
+
+		graph.insertEdge(0, 1, 1);
+		graph.insertEdge(0, 2, 1);
+		graph.insertEdge(1, 3, 1);
+		graph.insertEdge(1, 4, 1);
+		graph.insertEdge(3, 7, 1);
+		graph.insertEdge(4, 7, 1);
+		graph.insertEdge(2, 5, 1);
+		graph.insertEdge(2, 6, 1);
+		graph.insertEdge(5, 6, 1);
+
 		graph.showGraph ();
 		System.out.println ("dfs 深度遍历");
 		graph.dfs ();
+		System.out.println ();
 		System.out.println ("bfs 广度遍历");
 		graph.bfs ();
 
@@ -149,7 +162,7 @@ public class Graph {
 			w = getFirstNeighbor (u);
 			while (w !=-1){
 				if (!isVisited[w]){
-					System.out.print(getValueByIndex(i) + "=>");
+					System.out.print(getValueByIndex(w) + "=>");
 					//标记为已访问
 					isVisited[w] = true;
 					//将结点加入队列
