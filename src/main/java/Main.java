@@ -12,16 +12,29 @@ public class Main {
 //        FileOutputStream stream = new FileOutputStream (file);
 //        stream.write ("hello".getBytes ());
 //        System.out.println("Hello DataStructsAndAlgorithmn!");
-        List<Book> list = new ArrayList<> ();
-        {
-            list.add(new Book("Core Java", 200));
-            list.add(new Book("Core Java", 200));
-            list.add(new Book("Learning Freemarker", 150));
-            list.add(new Book("Spring MVC", 300));
-            list.add(new Book("Spring MVC", 300));
-        }
-          list.stream().filter(distinctByKey(b -> b.getName()))
-                .forEach(b -> System.out.println(b.getName()+ "," + b.getPrice()));
+
+//        List<Book> list = new ArrayList<> ();
+//        {
+//            list.add(new Book("Core Java", 200));
+//            list.add(new Book("Core Java", 200));
+//            list.add(new Book("Learning Freemarker", 150));
+//            list.add(new Book("Spring MVC", 300));
+//            list.add(new Book("Spring MVC", 300));
+//        }
+//          list.stream().filter(distinctByKey(b -> b.getName()))
+//                .forEach(b -> System.out.println(b.getName()+ "," + b.getPrice()));
+
+        int a[] = {4, 3, 6, 5, 1, 2};
+        int b[] = Arrays.copyOf(a, 4);
+        int c[] = Arrays.copyOfRange(a, 2, 4 + 1);
+
+        for (int i = 0; i < b.length; i++)
+            System.out.print(b[i] + " ");
+        System.out.println();
+
+        for (int i = 0; i < c.length; i++)
+            System.out.print(c[i] + " ");
+        System.out.println();
 
     }
 
