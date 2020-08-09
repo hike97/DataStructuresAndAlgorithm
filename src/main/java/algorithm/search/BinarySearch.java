@@ -1,27 +1,26 @@
 package algorithm.search;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
  * @Author hike97
- * @Description
+ * @Description 二分查找实现
  * @create 2020-07-28 9:49
  * @Modified By:
  **/
 public class BinarySearch {
 	public static void main (String[] args) {
-		int arr[] = {1,8,10,89,1000,1234,1,1,1,1,88,88,88};
-		Arrays.sort (arr);
-		System.out.println (Arrays.toString (arr));
+		int arr[] = {2,4,6,8,10};
 //		int i = binarySearch (arr, 0, arr.length - 1, 1);
 //		System.out.printf ("查到的index为: {%d}", i);
-		System.out.println ();
-		List<Integer> list = binarySearch2 (arr, 0, arr.length - 1, 1);
-		System.out.println ("binarySearch2 result:"+list);
-		int insertIndex = insertValueSearch (arr, 0, arr.length - 1, 1);
-		System.out.printf ("插值查找index为：<%d>", insertIndex);
+//		System.out.println ();
+//		List<Integer> list = binarySearch2 (arr, 0, arr.length - 1, 1);
+//		System.out.println ("binarySearch2 result:"+list);
+//		int insertIndex = insertValueSearch (arr, 0, arr.length - 1, 1);
+//		System.out.printf ("插值查找index为：<%d>", insertIndex);
+		int index = binarySearchNoRecurtion (arr, 8);
+		System.out.printf ("非递归查找:%d", index);
 	}
 	//二分查找算法
 
@@ -48,6 +47,14 @@ public class BinarySearch {
 		}
 	}
 
+	/**
+	 * 二分查找 支持 数组中有重复元素
+	 * @param arr
+	 * @param left
+	 * @param right
+	 * @param findVal
+	 * @return
+	 */
 	public static List<Integer> binarySearch2(int[] arr, int left, int right, int findVal){
 		int mid = (left+right)/2;
 		int midValue = arr[mid];
@@ -98,5 +105,28 @@ public class BinarySearch {
 		}else {
 			return mid;
 		}
+	}
+
+	/**
+	 * 非递归二分查找
+	 * @param arr
+	 * @param target
+	 * @return
+	 */
+	public static int binarySearchNoRecurtion(int arr[],int target){
+		int left = 0;
+		int right = arr.length-1;
+		while (left<right){
+			int mid = (left+right)/2;
+			if (arr[mid]==target){
+				return mid;
+			}else if (arr[mid]>target){
+				right = mid -1;//向左查找
+			}else {
+				left = mid+1;
+			}
+		}
+		return -1;
+
 	}
 }
