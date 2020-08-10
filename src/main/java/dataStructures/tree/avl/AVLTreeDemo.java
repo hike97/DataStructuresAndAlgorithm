@@ -9,7 +9,8 @@ package dataStructures.tree.avl;
 public class AVLTreeDemo {
 	public static void main (String[] args) {
 //		int arr[]  = {4,3,6,5,7,8};
-		int arr[]  = {10,12,8,9,7,6};
+//		int arr[]  = {10,12,8,9,7,6};
+		int arr[]  = {10,11,7,6,8,9};
 		AVLTree avlTree = new AVLTree ();
 		for (int i = 0; i < arr.length; i++) {
 			avlTree.add (new Node (arr[i]));
@@ -18,6 +19,7 @@ public class AVLTreeDemo {
 		System.out.println (avlTree.getRoot ().height ());
 		System.out.println (avlTree.getRoot ().leftHeight ());
 		System.out.println (avlTree.getRoot ().rightHeight ());
+		System.out.println (avlTree.getRoot ());
 	}
 }
 class AVLTree{
@@ -247,10 +249,24 @@ class Node {
 		}
 		//当添加完一个结点后，如果（右树高度-右树高度）
 		if (rightHeight ()-leftHeight () > 1){
-			leftRotate ();
+			if (right!=null&&right.leftHeight ()>right.rightHeight ()){
+				right.rightRotate ();
+				leftRotate ();
+			}else {
+				leftRotate ();
+			}
+			return;//必须要返回 否则会无限循环
 		}
 		if (leftHeight ()-rightHeight ()>1){
-			rightRotate ();
+			//如果左子树的右子树大于左子树的左子树
+			if (left!=null&&left.rightHeight ()>left.leftHeight ()){
+				//先对当前结点的左结点进行左旋转
+				left.leftRotate ();
+				//在对对当前结点进行右旋转
+				rightRotate ();
+			}else {
+				rightRotate ();
+			}
 		}
 	}
 
