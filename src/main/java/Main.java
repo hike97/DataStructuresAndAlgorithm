@@ -24,17 +24,19 @@ public class Main {
 //          list.stream().filter(distinctByKey(b -> b.getName()))
 //                .forEach(b -> System.out.println(b.getName()+ "," + b.getPrice()));
 
-        int a[] = {4, 3, 6, 5, 1, 2};
-        int b[] = Arrays.copyOf(a, 4);
-        int c[] = Arrays.copyOfRange(a, 2, 4 + 1);
-
-        for (int i = 0; i < b.length; i++)
-            System.out.print(b[i] + " ");
-        System.out.println();
-
-        for (int i = 0; i < c.length; i++)
-            System.out.print(c[i] + " ");
-        System.out.println();
+//        int a[] = {4, 3, 6, 5, 1, 2};
+//        int b[] = Arrays.copyOf(a, 4);
+//        int c[] = Arrays.copyOfRange(a, 2, 4 + 1);
+//
+//        for (int i = 0; i < b.length; i++)
+//            System.out.print(b[i] + " ");
+//        System.out.println();
+//
+//        for (int i = 0; i < c.length; i++)
+//            System.out.print(c[i] + " ");
+//        System.out.println();
+        byte[] bytes = "秦始皇".getBytes ();
+        System.out.println (Arrays.toString (bytes));
 
     }
 
