@@ -1,4 +1,4 @@
-package algorithm;
+package leeCode;
 
 /**
  * @Author hike97
