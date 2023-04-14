@@ -13,7 +13,9 @@ public class C04_Random{
     private static final int TIMES = 1000_0000;
 
     public static void main(String[] args) {
-
+        /**
+         * random 能做到等数等概率随机
+         */
         int count = 0;
         for (int i = 0; i < TIMES; i++) {
             if (Math.random() < 0.5) {
@@ -21,8 +23,9 @@ public class C04_Random{
             }
         }
         System.out.println((double) count / (double) TIMES);
+
         newLine();
-        // [0,1) -> [0,8)
+        //1. [0,1) -> [0,8) 范围扩大到8时，结果小于5的概率是8分之5
         count = 0;
         for (int i = 0; i < TIMES; i++) {
             if (Math.random() * 8 < 5) {
@@ -31,8 +34,20 @@ public class C04_Random{
         }
         System.out.println((double) count / (double) TIMES);
         System.out.println((double) 5 / (double) 8);
+        newLine();
 
-        CommonUtil.newLine();
+        //2. [0,K) -> [0,8]
+        int K = 9;
+        int[] counts = new int[9];
+        for (int i = 0; i < TIMES; i++) {
+            int ans = (int) (Math.random() * K); // [0,K-1]
+            counts[ans]++;
+        }
+        for (int i = 0; i < K; i++) {
+            System.out.println(i + "这个数，出现了 " + counts[i] + " 次");
+        }
+        newLine();
+
         System.out.println("已知f() 等概率返回1~5");
         CommonUtil.printP(TIMES,6,C04_Random::f);
         System.out.println("第一步：0~1 等概率事件函数f1()");
