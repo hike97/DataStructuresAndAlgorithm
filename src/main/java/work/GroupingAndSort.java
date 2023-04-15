@@ -1,4 +1,4 @@
-package dataStructures.work;
+package work;
 
 import lombok.Data;
 

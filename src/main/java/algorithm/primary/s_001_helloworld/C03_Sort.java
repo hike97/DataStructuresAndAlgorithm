@@ -1,4 +1,4 @@
-package algorithm.primary;
+package algorithm.primary.s_001_helloworld;
 
 import algorithm.utils.CommonUtil;
 

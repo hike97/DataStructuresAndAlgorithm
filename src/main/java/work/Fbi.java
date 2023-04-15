@@ -1,4 +1,4 @@
-package dataStructures.work;
+package work;
 
 /**
  * @Author hike97

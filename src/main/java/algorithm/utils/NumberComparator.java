@@ -1,6 +1,6 @@
 package algorithm.utils;
 
-import static algorithm.primary.C03_Sort.insertSortSimple;
+import static algorithm.primary.s_001_helloworld.C03_Sort.insertSortSimple;
 
 /**
  * @author: hike97

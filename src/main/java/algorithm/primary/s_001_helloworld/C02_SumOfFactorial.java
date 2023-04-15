@@ -1,4 +1,4 @@
-package algorithm.primary;
+package algorithm.primary.s_001_helloworld;
 
 /**
  * @author: hike97
