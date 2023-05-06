@@ -1,7 +1,7 @@
 package algorithm.primary.s_002_node;
 
 
-import algorithm.primary.s_002_node.entity.Printable;
+import algorithm.primary.s_002_node.entity.ListNode;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -40,26 +40,6 @@ public class C05_ReverseNodesInKGroup {
         ListNode node = reverseKGroup(listNode, 2);
         printNode(node);
     }
-
-    //@ToString
-    public static class ListNode implements Printable {
-        int val;
-        ListNode next;
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        @Override
-        public int getValue() {
-            return val;
-        }
-
-        @Override
-        public Printable getNext() {
-            return next;
-        }
-    }
-
     /**
      * 1.获取一个步长为k的Node的值
      * 1,2,3,4,5 k=3
