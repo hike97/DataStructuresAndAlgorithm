@@ -50,7 +50,7 @@ public class C03_Sort {
         //0 ~ end
         int n = arr.length;
         //先控制范围 每次都少遍历最高位
-        for (int end = n-1; end >=0 ; end--) {
+        for (int end = n-1; end >= 0; end--) {
             //在end的边界下两个数进行互相比较,将大的数放在最右边
             for (int i = 0; i < end; i++) {
                 //System.out.println(i +" : " + (i+1));

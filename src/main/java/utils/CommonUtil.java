@@ -14,9 +14,15 @@ public class CommonUtil {
 
     public static <T extends Printable> void printNode(T n1) {
         while (n1 != null) {
-            System.out.print(n1.getValue() + " ");
+            if (n1.getNext() == null){
+                System.out.print(n1.getValue());
+            } else {
+                System.out.print(n1.getValue() + "-->");
+            }
+
             n1 = (T) n1.getNext();
         }
+        System.out.println();
     }
 
     public static void printDoubleNode(DoubleNode n1) {

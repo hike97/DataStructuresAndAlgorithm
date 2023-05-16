@@ -1,5 +1,6 @@
 package newcoder;
 
+import utils.Generator;
 import zuoshen.primary.s_002_node.entity.ListNode;
 
 import static utils.CommonUtil.printNode;
@@ -11,15 +12,11 @@ import static utils.CommonUtil.printNode;
  * https://www.nowcoder.com/practice/b58434e200a648c589ca2063f1faf58c?tpId=295&tqId=654&ru=/exam/oj&qru=/ta/format-top101/question-ranking&sourceUrl=%2Fexam%2Foj
  */
 public class ReverseBetweenSolution {
-    public static ListNode head = new ListNode(1);
-    static {
-        head.next = new ListNode(2);
-        head.next.next = new ListNode(3);
-        head.next.next.next = new ListNode(4);
-        head.next.next.next.next = new ListNode(5);
-    }
     public static void main(String[] args) {
-        ListNode node = ReverseBetween(head, 2, 4);
+        ListNode head = Generator.generateRandomList(1, false);
+        printNode(head);
+        ListNode node = ReverseBetween(head, 1, 1);
+        System.out.println();
         printNode(node);
     }
 
