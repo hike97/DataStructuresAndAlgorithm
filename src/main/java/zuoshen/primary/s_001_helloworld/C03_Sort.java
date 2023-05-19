@@ -1,5 +1,6 @@
 package zuoshen.primary.s_001_helloworld;
 
+import base.recursion.MergeSort;
 import utils.CommonUtil;
 
 /**
@@ -96,7 +97,8 @@ public class C03_Sort {
         //selectSort(arr);
         //bubbleSort(arr);
         //insertSort(arr);
-        insertSortSimple(arr);
+//        insertSortSimple(arr);
+        MergeSort.mergeSort(arr,0,arr.length-1);
         CommonUtil.printArray(arr);
     }
 }

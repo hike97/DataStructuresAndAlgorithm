@@ -1,5 +1,9 @@
 package leetcode;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @Author hike97
  * @Description
@@ -23,14 +27,25 @@ public class TwoSum {
 
 	public static void main (String[] args) {
 		int [] nums =  {2,5,5,11};
-//		int target = 10;
-//		int[] result = twoSum (nums, 10);
-//		System.out.println (Arrays.toString (result));
-//		HashMap<Object, Object> map = new HashMap<> ();
-//		Arrays.stream (nums).skip (2).forEach (System.out::print);
-		int i = -123;
-		i=-i;
-		System.out.println (i);
+		int target = 10;
+		int[] result = twoSumMap(nums, target);
+		System.out.println(Arrays.toString(result));
+	}
 
+	public static int[] twoSumMap(int[] numbers,int target){
+		Map<Integer, Integer> map =  new HashMap<>(numbers.length);
+		int [] result = new int[2];
+		for (int i = 0; i < numbers.length; i++) {
+			int expectVal = target - numbers[i];
+			if (map.containsKey(expectVal)) {
+				result[0] = map.get(expectVal);
+				result[1] = i + 1;
+				return result;
+			}
+			if (!map.containsKey(numbers[i])) {
+				map.put(numbers[i], i + 1);
+			}
+		}
+		return result;
 	}
 }
