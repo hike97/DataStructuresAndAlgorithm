@@ -1,4 +1,4 @@
-package base.recursion;
+package base.sort;
 
 import static utils.CommonUtil.printArray;
 

@@ -1,6 +1,6 @@
 package zuoshen.primary.s_001_helloworld;
 
-import base.recursion.MergeSort;
+import base.sort.MergeSort;
 import utils.CommonUtil;
 
 /**
